@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101114" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Turntable" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Turntable iOS</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="setup" class="setup-panel">
+        <p class="eyebrow">TURN TABLE · iOS</p>
+        <h1>A wider way to listen.</h1>
+        <p class="lede">A private, landscape-first controller that runs on this device. It never needs your Spotify password or Client Secret.</p>
+        <label for="client-id">Spotify Client ID</label>
+        <input id="client-id" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste your Client ID" />
+        <button id="connect" class="primary">Connect Spotify</button>
+        <p class="fine-print">Before connecting, add this exact Redirect URI to your Spotify app: <code id="redirect-uri"></code></p>
+      </section>
+
+      <section id="player" class="player-panel" hidden>
+        <header>
+          <div><p class="eyebrow">TURN TABLE · iOS</p><p id="connection" class="connection">Connected</p></div>
+          <div class="header-actions"><button id="devices" class="icon-button" aria-label="Choose playback device">◌</button><button id="disconnect" class="text-button">Disconnect</button></div>
+        </header>
+        <div class="content-grid">
+          <section class="art-section" aria-label="Now playing">
+            <div id="record" class="record"><img id="artwork" alt="Album artwork" /><div class="record-label"><span id="label-title">No track playing</span><span>TURN TABLE</span></div></div>
+          </section>
+          <section class="now-playing">
+            <p id="device-name" class="device-name">Choose a Spotify playback device</p>
+            <h1 id="track-title">Start a song in Spotify</h1>
+            <p id="artist-name" class="artist-name">Then return here to control it.</p>
+            <div class="progress-row"><span id="elapsed">0:00</span><input id="progress" type="range" min="0" max="100" value="0" aria-label="Track progress" /><span id="duration">0:00</span></div>
+            <div class="controls"><button id="previous" class="control" aria-label="Previous track">↶</button><button id="play" class="play-control" aria-label="Play">▶</button><button id="next" class="control" aria-label="Next track">↷</button></div>
+            <div class="volume-row"><span>◖</span><input id="volume" type="range" min="0" max="100" value="50" aria-label="Volume" /><span>◗</span></div>
+          </section>
+          <aside class="lyrics-panel"><div class="panel-heading"><span>Lyrics</span><button id="refresh" class="text-button">Refresh</button></div><div id="lyrics" class="lyrics">Play a track to load lyrics.</div></aside>
+        </div>
+      </section>
+    </main>
+    <dialog id="device-dialog"><div class="dialog-heading"><h2>Playback devices</h2><button id="close-devices" class="icon-button" aria-label="Close">×</button></div><div id="device-list"></div></dialog>
+    <template id="device-template"><button class="device-option"><span class="device-title"></span><span class="device-meta"></span></button></template>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

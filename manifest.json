@@ -1,7 +1,7 @@
 {
   "name": "Turntable iOS",
   "short_name": "Turntable",
-  "start_url": "./",
+  "start_url": "https://peekabu411.github.io/turntable-ios/",
   "display": "fullscreen",
   "display_override": ["fullscreen", "standalone"],
   "background_color": "#050505",
